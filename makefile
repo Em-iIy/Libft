@@ -18,7 +18,7 @@ objects :
 	${CC} ${CFLAGS} -c ${SRCS}
 
 ${NAME}	:	${OBJS}
-	ar -crs ${NAME} ${OBJS}
+	ar -rcsu ${NAME} ${OBJS}
 
 clean	:	
 	rm -f ${OBJS}
