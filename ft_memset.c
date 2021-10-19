@@ -5,7 +5,10 @@ void	*ft_memset(void *b, int c, size_t len)
 	char	*d;
 
 	d = b;
-	while (len--)
+	while (len)
+	{
+		len--;
 		d[len] = c;
+	}
 	return (b);
 }

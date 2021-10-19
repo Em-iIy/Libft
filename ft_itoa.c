@@ -56,8 +56,9 @@ static char	*ft_fill(int n, int digits, int neg, char *ret)
 		i++;
 	}
 	ret[digits] = 0;
-	while (i < digits--)
+	while (i < digits)
 	{
+		digits--;
 		ret[digits] = n % 10 + '0';
 		n /= 10;
 	}

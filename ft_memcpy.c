@@ -9,8 +9,9 @@ void	*ft_memcpy(void *dst, void *src, size_t n)
 	src2 = src;
 	if (dst == 0x0 && src == 0x0)
 		return (dst);
-	while (n--)
+	while (n)
 	{
+		n--;
 		dst2[n] = src2[n];
 	}
 	return (dst);

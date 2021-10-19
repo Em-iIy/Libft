@@ -12,7 +12,10 @@ char	*ft_strdup(const char *s1)
 	if (ret_str == 0x0)
 		return (ret_str);
 	ret_str[str_size] = (char) s1[str_size];
-	while (str_size--)
+	while (str_size)
+	{
+		str_size--;
 		ret_str[str_size] = (char) s1[str_size];
+	}
 	return (ret_str);
 }
