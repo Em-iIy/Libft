@@ -18,7 +18,7 @@ char	**ft_split(const char *s, char c)
 	while (words < str_count)
 	{
 		i = 0;
-		while ((*s == c))
+		while (*s == c)
 			s++;
 		while (s[i] != c && s[i])
 			i++;
