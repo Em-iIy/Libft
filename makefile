@@ -1,4 +1,4 @@
-SRCS	=	./ft_atoi.c ./ft_bzero.c ./ft_calloc.c ./ft_isalnum.c \
+SRCS =		./ft_atoi.c ./ft_bzero.c ./ft_calloc.c ./ft_isalnum.c \
 		 	./ft_isalpha.c ./ft_isascii.c ./ft_isdigit.c ./ft_isprint.c \
 			./ft_memchr.c ./ft_memcmp.c ./ft_memcpy.c ./ft_memmove.c \
 			./ft_memset.c ./ft_strchr.c ./ft_strdup.c ./ft_strlcat.c \
@@ -7,23 +7,33 @@ SRCS	=	./ft_atoi.c ./ft_bzero.c ./ft_calloc.c ./ft_isalnum.c \
 			./ft_strjoin.c ./ft_strtrim.c ./ft_split.c ./ft_itoa.c \
 			./ft_strmapi.c ./ft_striteri.c ./ft_putchar_fd.c ./ft_putstr_fd.c \
 			./ft_putendl_fd.c ./ft_putnbr_fd.c
-OBJS	= ${SRCS:.c=.o}
-CC		= gcc
-CFLAGS	= -Wall -Wextra -Werror
-NAME	= libft.a
 
-all		:	${NAME}
+B_SRCS =	./ft_lstnew.c ./ft_lstadd_front.c ./ft_lstsize.c
 
-objects :
-	${CC} ${CFLAGS} -c ${SRCS}
+OBJS = $(SRCS:.c=.o)
 
-${NAME}	:	${OBJS}
-	ar -rcsu ${NAME} ${OBJS}
+B_OBJS = $(B_SRCS:.c=.o)
 
-clean	:	
-	rm -f ${OBJS}
+CFLAGS = -Wall -Werror -Wextra
 
-fclean	:	clean
-	rm -f ${NAME}
+CC = gcc
 
-re		:	fclean all
+NAME = libft.a
+
+all : $(NAME)
+
+$(NAME) : $(OBJS)
+	ar rsu $(NAME) $(OBJS)
+
+bonus : $(OBJS) $(B_OBJS)
+	ar rsu $(NAME) $(OBJS) $(B_OBJS)
+
+clean :
+	rm -f $(OBJS) $(B_OBJS)
+
+fclean : clean
+	rm -f $(NAME)
+
+re : fclean all
+
+.PHONY : all bonus clean fclean re
