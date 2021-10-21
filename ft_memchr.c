@@ -9,7 +9,7 @@ void	*ft_memchr(const void *str, int c, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		if (strbuff[i] == c)
+		if (strbuff[i] == (char)c)
 			return ((void *)&str[i]);
 		i++;
 	}

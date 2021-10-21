@@ -1,7 +1,34 @@
 #include "libft.h"
 
-static int	ft_str_count(const char *s, char c);
-static char	**free_all(char **ret);
+static int	ft_str_count(const char *s, char c)
+{
+	int	str_count;
+	int	i;
+
+	str_count = 0;
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] != c && (s[i + 1] == c || s[i + 1] == 0))
+			str_count++;
+		i++;
+	}
+	return (str_count);
+}
+
+static char	**free_all(char **ret)
+{
+	int	i;
+
+	i = 0;
+	while (ret[i])
+	{
+		free(ret[i]);
+		i++;
+	}
+	free(ret);
+	return (0);
+}
 
 char	**ft_split(const char *s, char c)
 {
@@ -30,33 +57,4 @@ char	**ft_split(const char *s, char c)
 	}
 	ret[str_count] = 0;
 	return (ret);
-}
-
-static int	ft_str_count(const char *s, char c)
-{
-	int	str_count;
-	int	i;
-
-	str_count = 0;
-	i = 0;
-	while (s[i])
-	{
-		if (s[i] != c && (s[i + 1] == c || s[i + 1] == 0))
-			str_count++;
-		i++;
-	}
-	return (str_count);
-}
-
-static char	**free_all(char **ret)
-{
-	int	i;
-
-	i = 0;
-	while (ret[i])
-	{
-		free(ret[i]);
-		i++;
-	}
-	return (0);
 }
