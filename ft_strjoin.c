@@ -8,6 +8,8 @@ char	*ft_strjoin(const char *s1, const char *s2)
 
 	i = 0;
 	j = 0;
+	if (!s1 || !s2)
+		return (0);
 	ret_str = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (ret_str == 0x0)
 		return (ret_str);

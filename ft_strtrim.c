@@ -4,6 +4,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	int		ret_len;
 
+	if (!s1 || !set)
+		return (0);
 	while (ft_strchr((char *)set, *s1) && *s1)
 		s1++;
 	ret_len = ft_strlen(s1);

@@ -6,6 +6,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	unsigned int	i;
 
 	i = 0;
+	if (!s)
+		return (0);
 	if (ft_strlen(s) < start)
 		return (ft_strdup(""));
 	else if (len > ft_strlen(s) - start)
