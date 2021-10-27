@@ -16,5 +16,4 @@ void	ft_putnbr_fd(int n, int fd)
 	if (tmp > 0)
 		ft_putnbr_fd((int)tmp, fd);
 	write(fd, &out, 1);
-	return ;
 }
