@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gwinnink <gwinnink@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/14 13:44:14 by gwinnink          #+#    #+#             */
+/*   Updated: 2021/12/14 13:44:15 by gwinnink         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
@@ -16,4 +28,5 @@ void	ft_putnbr_fd(int n, int fd)
 	if (tmp > 0)
 		ft_putnbr_fd((int)tmp, fd);
 	write(fd, &out, 1);
+	return ;
 }

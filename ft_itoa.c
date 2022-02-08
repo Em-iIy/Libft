@@ -1,37 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gwinnink <gwinnink@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/14 13:43:51 by gwinnink          #+#    #+#             */
+/*   Updated: 2021/12/14 13:43:52 by gwinnink         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-static int	ft_digits(int n)
-{
-	int	digits;
-
-	digits = 1;
-	while (n >= 10)
-	{
-		n /= 10;
-		digits++;
-	}
-	return (digits);
-}
-
-static char	*ft_fill(int n, int digits, int neg, char *ret)
-{
-	int	i;
-
-	i = 0;
-	if (neg < 0)
-	{
-		ret[i] = '-';
-		i++;
-	}
-	ret[digits] = 0;
-	while (i < digits)
-	{
-		digits--;
-		ret[digits] = n % 10 + '0';
-		n /= 10;
-	}
-	return (ret);
-}
+static int	ft_digits(int n);
+static char	*ft_fill(int n, int digits, int neg, char *ret);
 
 char	*ft_itoa(int n)
 {
@@ -59,5 +41,37 @@ char	*ft_itoa(int n)
 		return (ret);
 	}
 	ret = ft_fill(n * neg, digits, neg, ret);
+	return (ret);
+}
+
+static int	ft_digits(int n)
+{
+	int	digits;
+
+	digits = 1;
+	while (n >= 10)
+	{
+		n /= 10;
+		digits++;
+	}
+	return (digits);
+}
+
+static char	*ft_fill(int n, int digits, int neg, char *ret)
+{
+	int	i;
+
+	i = 0;
+	if (neg < 0)
+	{
+		ret[i] = '-';
+		i++;
+	}
+	ret[digits] = 0;
+	while (i < digits--)
+	{
+		ret[digits] = n % 10 + '0';
+		n /= 10;
+	}
 	return (ret);
 }
