@@ -3,28 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gwinnink <gwinnink@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 13:43:36 by gwinnink          #+#    #+#             */
-/*   Updated: 2021/12/14 13:43:37 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/22 18:00:51 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 void	*ft_calloc(unsigned int count, size_t size)
 {
-	char			*ret_ptr;
 	unsigned int	i;
+	char			*ret;
 
-	ret_ptr = (void *)malloc(count * size);
-	if (ret_ptr == 0x0)
-		return ((void *)ret_ptr);
+	ret = (void *)malloc(count * size);
+	if (!ret)
+		return (NULL);
 	i = 0;
 	while (i < count * size)
 	{
-		ret_ptr[i] = 0;
+		ret[i] = 0;
 		i++;
 	}
-	return ((void *)ret_ptr);
+	return ((void *)ret);
 }

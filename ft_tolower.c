@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gwinnink <gwinnink@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 13:44:57 by gwinnink          #+#    #+#             */
-/*   Updated: 2021/12/14 13:44:58 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/22 17:45:55 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,5 @@ int	ft_tolower(int c)
 {
 	if (c + 32 >= 'a' && c + 32 <= 'z')
 		return (c + 32);
-	else
-		return (c);
+	return (c);
 }

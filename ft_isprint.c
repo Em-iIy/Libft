@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gwinnink <gwinnink@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 13:43:49 by gwinnink          #+#    #+#             */
-/*   Updated: 2021/12/14 13:43:50 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/22 18:02:34 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isprint(int c)
 {
-	if (c >= ' ' && c <= '~')
-		return (1);
-	else
-		return (0);
+	return (c >= ' ' && c <= '~');
 }

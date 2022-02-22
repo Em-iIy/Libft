@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gwinnink <gwinnink@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 13:44:20 by gwinnink          #+#    #+#             */
-/*   Updated: 2021/12/14 13:44:21 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/22 17:45:29 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ char	**ft_split(const char *s, char c)
 	words = 0;
 	str_count = ft_str_count(s, c);
 	ret = (char **)malloc((str_count + 1) * sizeof(char *));
-	if (ret == 0x0)
-		return (0);
+	if (!ret)
+		return (NULL);
 	while (words < str_count)
 	{
 		i = 0;
-		while ((*s == c))
+		while (*s == c)
 			s++;
 		while (s[i] != c && s[i])
 			i++;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gwinnink <gwinnink@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 13:44:02 by gwinnink          #+#    #+#             */
-/*   Updated: 2021/12/14 13:44:03 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/22 18:04:04 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 	dstbuff = dst;
 	srcbuff = src;
 	i = 0;
-	if (dst == 0x0 && src == 0x0)
-		return (dst);
+	if (!dst || !src)
+		return (NULL);
 	if (dst > src)
 	{
 		while (n--)
