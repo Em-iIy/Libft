@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 13:44:49 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/22 17:52:05 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/23 10:09:50 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strrchr(const char *str, int c)
 	ret_index = -1;
 	while (str[i])
 	{
-		if (str[i] == c)
+		if (str[i] == (char)c)
 			ret_index = i;
 		i++;
 	}
