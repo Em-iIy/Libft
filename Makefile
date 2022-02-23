@@ -35,7 +35,7 @@ bonus 	: 	$(OBJS)
 	$(MAKE) WITH_BONUS=1
 
 clean	:
-	rm -f ${OBJS}
+	rm -f ${OBJS} ${B_OBJS}
 
 fclean	:	clean
 	rm -f ${NAME}
