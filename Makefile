@@ -1,3 +1,4 @@
+# Source files
 SRCS	=	./ft_atoi.c ./ft_bzero.c ./ft_calloc.c ./ft_isalnum.c \
 		 	./ft_isalpha.c ./ft_isascii.c ./ft_isdigit.c ./ft_isprint.c \
 			./ft_memchr.c ./ft_memcmp.c ./ft_memcpy.c ./ft_memmove.c \
@@ -12,32 +13,40 @@ B_SRCS =	./ft_lstnew_bonus.c ./ft_lstadd_front_bonus.c ./ft_lstsize_bonus.c \
 			./ft_lstlast_bonus.c ./ft_lstadd_back_bonus.c ./ft_lstdelone_bonus.c \
 			./ft_lstclear_bonus.c ./ft_lstiter_bonus.c ./ft_lstmap_bonus.c
 
-OBJS	= ${SRCS:.c=.o}
+# Objects
+OBJS = ${SRCS:.c=.o}
+
 B_OBJS = $(B_SRCS:.c=.o)
 
+# Bonus
 ifdef WITH_BONUS
 OBJS += $(B_OBJS)
 endif
 
+# Compiling info
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
 NAME	= libft.a
 
+# Compiling
 all		:	${NAME}
 
-objects :
-	${CC} ${CFLAGS} -c ${SRCS}
+%.o 	:	%.c
+	@${CC} ${CFLAGS} -c $< -o $@
 
 ${NAME}	:	${OBJS}
-	ar -crs ${NAME} ${OBJS}
+	@ar -crsu ${NAME} ${OBJS}
 
 bonus 	: 	$(OBJS)
-	$(MAKE) WITH_BONUS=1
+	@$(MAKE) WITH_BONUS=1
 
+# Cleaning
 clean	:
-	rm -f ${OBJS} ${B_OBJS}
+	@rm -f ${OBJS} ${B_OBJS}
 
 fclean	:	clean
-	rm -f ${NAME}
+	@rm -f ${NAME}
 
 re		:	fclean all
+
+.PHONY	:	all bonus clean fclean re
