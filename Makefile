@@ -35,7 +35,7 @@ all		:	${NAME}
 	@${CC} ${CFLAGS} -c $< -o $@
 
 ${NAME}	:	${OBJS}
-	@ar -crsu ${NAME} ${OBJS}
+	@ar -crs ${NAME} ${OBJS}
 
 bonus 	: 	$(OBJS)
 	@$(MAKE) WITH_BONUS=1

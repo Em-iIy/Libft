@@ -12,8 +12,34 @@
 
 #include "libft.h"
 
-static int	ft_str_count(const char *s, char c);
-static char	**free_all(char **ret);
+static void	free_all(char **ret)
+{
+	int	i;
+
+	i = 0;
+	while (ret[i])
+	{
+		free(ret[i]);
+		i++;
+	}
+	free(ret);
+}
+
+static int	ft_str_count(const char *s, char c)
+{
+	int	str_count;
+	int	i;
+
+	str_count = 0;
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] != c && (s[i + 1] == c || s[i + 1] == 0))
+			str_count++;
+		i++;
+	}
+	return (str_count);
+}
 
 char	**ft_split(const char *s, char c)
 {
@@ -36,39 +62,10 @@ char	**ft_split(const char *s, char c)
 			i++;
 		ret[words] = ft_substr(s, 0, i);
 		if (!ret[words])
-			return (free_all(ret));
+			return (free_all(ret), NULL);
 		s += i;
 		words++;
 	}
-	ret[str_count] = 0;
+	ret[str_count] = NULL;
 	return (ret);
-}
-
-static int	ft_str_count(const char *s, char c)
-{
-	int	str_count;
-	int	i;
-
-	str_count = 0;
-	i = 0;
-	while (s[i])
-	{
-		if (s[i] != c && (s[i + 1] == c || s[i + 1] == 0))
-			str_count++;
-		i++;
-	}
-	return (str_count);
-}
-
-static char	**free_all(char **ret)
-{
-	int	i;
-
-	i = 0;
-	while (ret[i])
-	{
-		free(ret[i]);
-		i++;
-	}
-	return (0);
 }

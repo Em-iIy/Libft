@@ -52,11 +52,11 @@ char	*ft_itoa(int n)
 	int		neg;
 	char	*ret;
 
+	if (n == INT_MIN)
+		return (ft_strdup("-2147483648"));
 	neg = 1;
 	digits = 1;
-	if (n == INT_MIN)
-		digits = 11;
-	else if (n < 0)
+	if (n < 0)
 	{
 		neg = -1;
 		digits = ft_digits(n * -1) + 1;
@@ -64,13 +64,8 @@ char	*ft_itoa(int n)
 	else
 		digits = ft_digits(n);
 	ret = (char *)malloc((digits + 1) * sizeof(char));
-	if (ret == 0x0)
+	if (!ret)
 		return (ret);
-	if (n == INT_MIN)
-	{
-		ft_strlcpy(ret, "-2147483648", 12);
-		return (ret);
-	}
 	ret = ft_fill(n * neg, digits, neg, ret);
 	return (ret);
 }
